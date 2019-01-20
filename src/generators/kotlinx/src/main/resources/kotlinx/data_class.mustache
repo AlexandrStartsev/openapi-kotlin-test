@@ -13,6 +13,7 @@ import kotlinx.serialization.*
 import kotlinx.serialization.json.Json
 
 @Serializable
+@UseExperimental(ImplicitReflectionSerializer::class)
 {{#parcelizeModels}}
 @Parcelize
 {{/parcelizeModels}}
@@ -34,10 +35,14 @@ data class {{classname}} (
     {{/enumVars}}{{/allowableValues}}
     }
 {{/isEnum}}{{/vars}}{{/hasEnums}}
-    @UseExperimental(ImplicitReflectionSerializer::class)
+
     companion object {
-        fun fromJson(arg: String): {{classname}} {
-            return Json.parse<{{classname}}>(arg)
+        fun parse(arg: String): {{classname}} {
+            return Json.parse(arg)
         }
+    }
+
+    fun stringify(): String {
+        return Json.stringify(this)
     }
 }
