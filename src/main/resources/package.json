@@ -1,8 +1,8 @@
 {
-  "name": "openapi-kotlin",
+  "name": "@ostartsev/openapi-kotlin-js",
   "version": "1.0.0",
   "description": "Kotlin and js integration playground",
-  "main": "openapi-kotlin.js",
+  "main": "openapi-kotlin-js.js",
   "author": "ostartsev",
   "license": "ISC",
   "scripts": {
@@ -12,6 +12,7 @@
     "kotlin": "^1.3.11"
   },
   "devDependencies": {
+    "replace-in-file": "^3.4.3",
     "source-map-loader": "^0.2.4",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"

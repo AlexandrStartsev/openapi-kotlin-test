@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.alex</groupId>
-    <artifactId>openapi-kotlin</artifactId>
+    <artifactId>openapi-kotlin-js</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -235,6 +235,18 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <excludes>
+                        <exclude>node_modules/**/*</exclude>
+                        <exclude>package-lock.json</exclude>
+                        <exclude>webpack.config.js</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
         <outputDirectory>target/js</outputDirectory>

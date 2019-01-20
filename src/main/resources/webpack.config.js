@@ -1,14 +1,17 @@
 var path = require("path");
+require('replace-in-file').sync({
+    files: './openapi-kotlin-js.meta.js',
+    from: /"openapi-kotlin-js"/,
+    to: "\"@ostartsev/openapi-kotlin-js\""
+});
 
-module.exports= {
-    entry: [
-        "./openapi-kotlin.js"
-    ],
+module.exports = {
+    entry: "./openapi-kotlin-js.js",
     output: {
         path: path.resolve(__dirname, "."),
-        //library: "@ostartsev/openapi-kotlin",
+        library: "@ostartsev/openapi-kotlin-js",
         libraryTarget: "umd",
-        filename: "openapi-kotlin.js",
+        filename: "openapi-kotlin-js.js",
         umdNamedDefine: true,
         globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
