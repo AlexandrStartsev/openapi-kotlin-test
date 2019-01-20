@@ -16,6 +16,8 @@ components:
           type: string
         dob:
           type: date
+        race:
+          $ref: '#/components/schemas/Race'
         contact_info:
           type: object
           properties:
@@ -26,7 +28,30 @@ components:
               type: string
           required:
             - phone
+        favoriteMovies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Movie'
       required:
         - id
         - name
         - dob
+
+    Race:
+      type: string
+      enum:
+        - black
+        - white
+        - hispanic
+        - asian
+
+    Movie:
+      type: object
+      properties:
+        title:
+          type: string
+      required:
+        - title
+
+
+paths: {}
