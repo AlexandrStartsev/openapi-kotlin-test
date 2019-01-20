@@ -21,9 +21,18 @@ module.exports= {
     externals: {
         'kotlin': 'kotlin'
     },
-    mode: "development",
+    mode: "production",
 	optimization: {
-		minimize: false
+		minimize: true
 	},
-	devtool: "source-map"
+	devtool: "source-map",
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: ["source-map-loader"],
+                enforce: "pre"
+            }
+        ]
+    }
 };
