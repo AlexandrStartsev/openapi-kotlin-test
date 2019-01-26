@@ -32,10 +32,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Movie'
+        skippableArray:
+          type: array
+          items:
+            type: string
+        requiredSkippableArray:
+          type: array
+          items:
+            type: string
       required:
         - id
         - name
         - dob
+        - requiredSkippableArray
 
     Race:
       type: string

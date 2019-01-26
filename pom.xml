@@ -43,6 +43,12 @@
             <artifactId>kotlinx-serialization-runtime-js</artifactId>
             <version>${kotlinx.serialization.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlinx-maven-serialization-plugin</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -180,12 +186,31 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
+                                    <groupId>org.jetbrains.kotlin</groupId>
+                                    <artifactId>kotlinx-maven-serialization-plugin</artifactId>
+                                    <version>${kotlin.version}</version>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/kotlinx-maven-serialization-plugin</outputDirectory>
+                                   <!-- <includes>kotlinx-serialization-runtime-js.js,kotlinx-serialization-runtime-js.js.map</includes> -->
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>unpack-2</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
                                     <groupId>org.jetbrains.kotlinx</groupId>
                                     <artifactId>kotlinx-serialization-runtime-js</artifactId>
                                     <version>${kotlinx.serialization.version}</version>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${project.build.directory}/kotlinx-serialization-runtime-js</outputDirectory>
-                                    <includes>kotlinx-serialization-runtime-js.js,kotlinx-serialization-runtime-js.js.map</includes>
+                                    <!-- <includes>kotlinx-serialization-runtime-js.js,kotlinx-serialization-runtime-js.js.map</includes> -->
                                 </artifactItem>
                             </artifactItems>
                         </configuration>

@@ -6,12 +6,13 @@
   "author": "ostartsev",
   "license": "ISC",
   "scripts": {
-    "webpack": "npm install && ./node_modules/.bin/webpack-cli"
+    "webpack": "npm install && webpack-cli"
   },
   "dependencies": {
-    "kotlin": "^1.3.11"
+    "kotlin": "1.3.11"
   },
   "devDependencies": {
+    "@jetbrains/kotlinc-js-api": "1.2.12",
     "replace-in-file": "^3.4.3",
     "source-map-loader": "^0.2.4",
     "webpack": "^4.28.4",

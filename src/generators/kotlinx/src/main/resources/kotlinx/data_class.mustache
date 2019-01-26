@@ -37,12 +37,8 @@ data class {{classname}} (
 {{/isEnum}}{{/vars}}{{/hasEnums}}
 
     companion object {
-        fun parse(arg: String): {{classname}} {
-            return Json.parse(arg)
-        }
+        fun parse(arg: String): {{classname}} = Json.nonstrict.parse(arg)
     }
 
-    fun stringify(): String {
-        return Json.stringify(this)
-    }
+    fun stringify(): String = Json.stringify(this) //TODO: (encodeDefaults = false) doesn't work for now
 }
