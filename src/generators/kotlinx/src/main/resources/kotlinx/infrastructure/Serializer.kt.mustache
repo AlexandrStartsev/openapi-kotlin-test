@@ -1,14 +1,10 @@
 package {{packageName}}.infrastructure
+import kotlinx.serialization.*
+import kotlinx.serialization.json.Json
 
-import com.squareup.moshi.KotlinJsonAdapterFactory
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Rfc3339DateJsonAdapter
-import java.util.*
-
+@UseExperimental(ImplicitReflectionSerializer::class)
 object Serializer {
-    @JvmStatic
-    val moshi: Moshi = Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
-        .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
-        .build()
+    inline fun <reified T: Any> parse (json: String): T = Json.nonstrict.parse<T>(json)
+
+    inline fun <reified T: Any> stringify(obj: T): String = Json.stringify<T>(obj) //TODO: (encodeDefaults = false) doesn't work for now
 }
