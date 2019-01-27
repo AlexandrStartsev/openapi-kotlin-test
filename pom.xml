@@ -9,9 +9,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <kotlin.version>1.3.11</kotlin.version>
-        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <kotlinx.serialization.version>0.10.0-eap-1</kotlinx.serialization.version>
+        <kotlin.version>1.3.20</kotlin.version>
+        <kotlin.compiler.incremental>false</kotlin.compiler.incremental>
+        <kotlinx.serialization.version>0.10.0</kotlinx.serialization.version>
     </properties>
 
     <repositories>
@@ -42,12 +42,6 @@
             <groupId>org.jetbrains.kotlinx</groupId>
             <artifactId>kotlinx-serialization-runtime-js</artifactId>
             <version>${kotlinx.serialization.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlinx-maven-serialization-plugin</artifactId>
-            <version>${kotlin.version}</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -145,7 +139,7 @@
                 <dependencies>
                     <dependency>
                         <groupId>org.jetbrains.kotlin</groupId>
-                        <artifactId>kotlinx-maven-serialization-plugin</artifactId>
+                        <artifactId>kotlin-maven-serialization</artifactId>
                         <version>${kotlin.version}</version>
                     </dependency>
                 </dependencies>
@@ -186,31 +180,11 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>org.jetbrains.kotlin</groupId>
-                                    <artifactId>kotlinx-maven-serialization-plugin</artifactId>
-                                    <version>${kotlin.version}</version>
-                                    <overWrite>true</overWrite>
-                                    <outputDirectory>${project.build.directory}/kotlinx-maven-serialization-plugin</outputDirectory>
-                                   <!-- <includes>kotlinx-serialization-runtime-js.js,kotlinx-serialization-runtime-js.js.map</includes> -->
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>unpack-2</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
                                     <groupId>org.jetbrains.kotlinx</groupId>
                                     <artifactId>kotlinx-serialization-runtime-js</artifactId>
                                     <version>${kotlinx.serialization.version}</version>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${project.build.directory}/kotlinx-serialization-runtime-js</outputDirectory>
-                                    <!-- <includes>kotlinx-serialization-runtime-js.js,kotlinx-serialization-runtime-js.js.map</includes> -->
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
